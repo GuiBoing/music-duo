@@ -1,0 +1,33 @@
+.container-connection {
+  background-color: #27374D;
+  margin: 15px;
+  padding: 0px;
+  width: auto;
+  height: calc(100vh - 30px);
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background-color: #797979;
+    color: #000;
+    box-shadow: 0px 6px 6px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 0px 12px 12px;
+
+    h3 {
+      font-weight: 700;
+
+    }
+  }
+
+  .content {
+    padding: 15px 9px;
+    overflow: auto;
+
+
+  }
+}
