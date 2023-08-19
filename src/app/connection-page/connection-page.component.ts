@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-connection-page',
@@ -6,6 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connection-page.component.scss']
 })
 export class ConnectionPageComponent implements OnInit {
+
+  @Input() methodData: 'input' | 'output';
+  selectedService;
+  selectData(serviceName: string) {
+    console.log(this.methodData,serviceName)
+    this.selectedService = serviceName
+  }
 
   constructor() { }
 
