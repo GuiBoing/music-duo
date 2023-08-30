@@ -1,0 +1,6 @@
+body {
+  background-image: linear-gradient(90deg, #0000005a 0%, #0000003a 33%, #0000003a 66%, #0000005a 100%), linear-gradient(#526D82 70%, #9DB2BF 100%);
+  background-size: contain;
+  background-repeat: no-repeat; /* Prevent repeating of the background */
+  background-attachment: fixed; /* Keep the background fixed when scrolling */
+}

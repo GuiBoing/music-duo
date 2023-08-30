@@ -1,26 +1,44 @@
-<div class="container-connection">
-  <div class="header">
-    <h3>Selecione o serviço desejado para {{methodData}}</h3>
-  </div>
-  <div class="content">
-    <div class="card-item" (click)="selectData('spotify')" *ngIf="!selectedService || selectedService === 'spotify'">
-      <!-- <span class="service-title">Spotify</span> -->
-      <img
-        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/220px-Spotify_logo_with_text.svg.png"
-        alt="" class="icon">
+  <div class="container-connection">
+    <div class="header">
+      <h3>Selecione o serviço desejado para {{methodData}}</h3>
     </div>
-    <div class="card-item" (click)="selectData('youtubeMusic')"
-      *ngIf="!selectedService || selectedService === 'youtubeMusic'">
-      <!-- <span class="service-title">Youtube Music</span> -->
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/YT_Music.svg/196px-YT_Music.svg.png" alt=""
-        class="icon">
+    <div class="content">
+      <button class="btn btn-outline-secondary btn-lg btn-block button_return" type="button"
+        (click)="selectedService = ''" *ngIf="selectedService">
+      </button>
+      <div class="card-item" (click)="selectData('spotify')" *ngIf="!selectedService || selectedService === 'spotify'">
+        <!-- <span class="service-title">Spotify</span> -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Spotify_logo_with_text.svg/220px-Spotify_logo_with_text.svg.png"
+          alt="" class="icon">
+      </div>
+      <div class="card-item" (click)="selectData('youtubeMusic')"
+        *ngIf="!selectedService || selectedService === 'youtubeMusic'">
+        <!-- <span class="service-title">Youtube Music</span> -->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/YT_Music.svg/196px-YT_Music.svg.png" alt=""
+          class="icon">
+      </div>
     </div>
-    <div class="card-item">
-      <img src="" alt="" class="icon">
+    <div class="inputs" *ngIf="selectedService">
+      <form [formGroup]="formGroup" (ngSubmit)="logInService()">
+        <div class="form-group" *ngIf="!isConected[methodData]">
+          <label for="idKey">IdKey:</label>
+          <input type="text" class="form-control" id="idKey" placeholder="ID" [formControlName]="methodData+'IdKey'">
+        </div>
+        <div class="form-group" *ngIf="!isConected[methodData]">
+          <label for="idKey">user:</label>
+          <input type="text" class="form-control" id="idKey" placeholder="ID" [formControlName]="methodData+'User'">
+        </div>
+        <button type="submit" class="btn btn-primary" *ngIf="!isConected[methodData]">Conectar</button>
+        <div class="input-group mb-3" *ngIf="isConected[methodData] && listaPlaylists[methodData]">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Playlist</label>
+          </div>
+          <select class="custom-select" id="inputGroupSelect01" [formControlName]="methodData+'SelectedPlaylist'" (change)="selectPlaylist()">
+            <option selected>Choose...</option>
+            <option *ngFor="let pl of listaPlaylists[methodData]" [value]="pl.id">{{pl.name}}</option>
+          </select>
+        </div>
+      </form>
     </div>
   </div>
-  <div class="inputs" *ngIf="selectedService">
-    <input type="text">
-    <button></button>
-  </div>
-</div>

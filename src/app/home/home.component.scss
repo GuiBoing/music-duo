@@ -1,7 +1,19 @@
-.wrapper{
+.wrapper {
   margin: 0px;
-  div{
+
+  div {
     padding: 0px;
   }
-}
 
+  .column-left,
+  .column-center,
+  .column-right {
+    height: calc(100vh - 30px);
+
+    @media only screen and (max-width: 575px) {
+      & {
+        height: min-content;
+      }
+    }
+  }
+}

@@ -3,10 +3,11 @@
   margin: 15px;
   padding: 0px;
   width: auto;
-  height: calc(100vh - 30px);
+  height: 100%;
   display: flex;
   align-content: center;
   flex-direction: column;
+  border-radius: 0px 0px 12px 12px;
 
   .header {
     display: flex;
@@ -23,16 +24,32 @@
     }
   }
 
+
   .content {
     padding: 15px 9px;
     overflow: auto;
 
+    .button_return {
+      display: flex;
+      width: 100%;
+      padding: 12px;
+      justify-content: center;
+    }
+
     .card-item {
+      display: flex;
+      justify-content: center;
+      overflow-x: hidden;
+
       .service-title {}
 
       .icon {
-        width: 100%;
+        width: max(100%, 140px);
+        aspect-ratio: 3/1;
         padding: 9px;
+        max-width: 300px;
+        object-fit: contain;
+        mix-blend-mode: hard-light;
       }
     }
 

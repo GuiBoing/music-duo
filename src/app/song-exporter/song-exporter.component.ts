@@ -19,15 +19,15 @@ export class SongExporterComponent implements OnInit {
 
   }
 
-  conectarEListarSpotify() {
-    this.spotifyService.getListaPlalist().subscribe((response: any) => {
-      this.spotifyPlaylists = response.items
-    })
-  }
-  listarPlaylist(playlistId) {
-    this.spotifyService.getPlaylistEspecifica(playlistId).subscribe((response: any) => {
-      this.spotifyPlaylistSelecionada = response.items
-    })
-  }
+  // conectarEListarSpotify() {
+  //   this.spotifyService.getListaPlalist().subscribe((response: any) => {
+  //     this.spotifyPlaylists = response.items
+  //   })
+  // }
+  // listarPlaylist(playlistId) {
+  //   this.spotifyService.getPlaylistEspecifica(playlistId).subscribe((response: any) => {
+  //     this.spotifyPlaylistSelecionada = response.items
+  //   })
+  // }
 
 }

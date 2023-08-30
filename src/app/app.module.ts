@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListTracksComponent } from './list-tracks/list-tracks.component';
-import { ListPlaylistComponent } from './list-playlist/list-playlist.component';
 import { SongComparerComponent } from './song-comparer/song-comparer.component';
 import { SongExporterComponent } from './song-exporter/song-exporter.component';
 import { FunctionSelectComponent } from './function-select/function-select.component';
@@ -17,7 +16,6 @@ import { ConnectionPageComponent } from './connection-page/connection-page.compo
     AppComponent,
     HomeComponent,
     ListTracksComponent,
-    ListPlaylistComponent,
     SongComparerComponent,
     SongExporterComponent,
     FunctionSelectComponent,

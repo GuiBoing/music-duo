@@ -7,15 +7,17 @@ import { environment } from "src/environments/environment";
 })
 export class SpotifyConnectionService {
   constructor(private httpClient: HttpClient) {
-    this.getAuths().subscribe((response) => (this.accessToken = response));
+
   }
 
-  private clientId = environment.spotifyClientId;
   private clientSecret = environment.spotifySecretKey;
+  clientId;
   private accessToken: any;
 
-  getAuths(): any {
-    const authHeader = "Basic " + btoa(`${this.clientId}:${this.clientSecret}`);
+
+  getAuths(clientId): any {
+    this.clientId = clientId
+    const authHeader = "Basic " + btoa(`${clientId}:${this.clientSecret}`);
     const body = new HttpParams().set("grant_type", "client_credentials");
 
     const options = {
@@ -32,14 +34,18 @@ export class SpotifyConnectionService {
     );
   }
 
-  getListaPlalist() {
+  getListaPlalist(user_id) {
+    let sessionData = window.sessionStorage.getItem('input') ? window.sessionStorage.getItem('input') : (window.sessionStorage.getItem('output') ? window.sessionStorage.getItem('output') : undefined)
+    if (sessionData) {
+      this.accessToken = JSON.parse(sessionData)['response']
+    }
     const options = {
       headers: new HttpHeaders({
         Authorization: `${this.accessToken.token_type} ${this.accessToken.access_token}`,
       }),
     };
     return this.httpClient.get(
-      `https://api.spotify.com/v1/users/22vv5v76eeixxskmlgkc344dy/playlists`,
+      `https://api.spotify.com/v1/users/${user_id}/playlists`,
       options
     );
   }
@@ -50,6 +56,7 @@ export class SpotifyConnectionService {
       }),
     };
     return this.httpClient.get(
+
       `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
       options
     );

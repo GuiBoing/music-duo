@@ -1,11 +1,13 @@
 <div class="wrapper row">
-    <div class="col-3">
-        <app-connection-page methodData="input"></app-connection-page>
-    </div>
-    <div class="col-6">
-        <app-function-select></app-function-select>
-    </div>
-    <div class="col-3">
-        <app-connection-page methodData="output"></app-connection-page>
-    </div>
+  <div class="col-sm-3 col-xs-12 column-left">
+    <app-connection-page methodData="input"></app-connection-page>
+    <!-- <app-list-tracks methodData="input"></app-list-tracks> -->
+  </div>
+  <div class="col-sm-6 col-xs-12 column-center">
+    <app-function-select></app-function-select>
+  </div>
+  <div class="col-sm-3 col-xs-12 column-right">
+    <app-connection-page methodData="output"></app-connection-page>
+    <!-- <app-list-tracks methodData="output"></app-list-tracks> -->
+  </div>
 </div>
