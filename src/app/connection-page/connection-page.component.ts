@@ -9,11 +9,12 @@ import { YouTubeConnectionService } from "../youtube-connection.service";
   styleUrls: ["./connection-page.component.scss"],
 })
 export class ConnectionPageComponent implements OnInit {
+
   formGroup = new FormGroup({
-    inputIdKey: new FormControl("2f45e2b817d542fa900f36647661c547"),
+    inputIdKey: new FormControl(""),
     outputIdKey: new FormControl(""),
-    outputUser: new FormControl("UCp8qsqop-pcBmR0NkKehdeg"),
-    inputUser: new FormControl("22vv5v76eeixxskmlgkc344dy"),
+    outputUser: new FormControl(""),
+    inputUser: new FormControl(""),
     outputSelectedPlaylist: new FormControl(),
     inputSelectedPlaylist: new FormControl(),
   });
